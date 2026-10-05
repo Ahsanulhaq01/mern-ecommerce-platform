@@ -11,6 +11,7 @@ import {
 import "./signup.css";
 import { useState } from "react";
 import axiosInstance from "../../../utils/axioxInstance";
+import { toast } from "react-toastify";
 
 function SignUp() {
   const [showPassword , setShowPassword] = useState(true);
@@ -40,12 +41,12 @@ function SignUp() {
   async function handleSubmit(e){
     e.preventDefault();
 
-    console.log("BEFORE API:", JSON.stringify(formData));
     try {
       const response = await axiosInstance.post('/users/register' , formData);
-      console.log(response.data);
+      toast.success(response.data.message);
     } catch (error) {
-      console.log(error?.response?.data || error);
+      toast.error(error?.response.data || error?.message);
+      
     }
   }
 

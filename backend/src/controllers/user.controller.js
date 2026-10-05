@@ -5,6 +5,8 @@ import {ApiResponse} from './../utils/apiResponse.js'
 const registerUser = asyncHandler(async (req, res)=>{
     const {userName , email , password} = req.body;
 
+    console.log(req.body)
+
     const existingUser = await User.findOne({"email" : email});
     if(existingUser){
         return res.status(200).json(

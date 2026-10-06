@@ -1,0 +1,22 @@
+.registration-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: 
+    space-between;
+    gap: 10px;
+    align-items: center;
+    max-width: 350px;
+
+}
+.registration-heading h2{
+    color: #131B2E;
+    font-family:  sans-serif;
+
+}
+.registration-heading p{
+    color : #717175;
+    font-size: 14px;
+    /* border: 2px solid green; */
+    text-align: center;
+
+}

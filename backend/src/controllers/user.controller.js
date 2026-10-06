@@ -5,7 +5,6 @@ import {ApiResponse} from './../utils/apiResponse.js'
 const registerUser = asyncHandler(async (req, res)=>{
     const {userName , email , password} = req.body;
 
-    console.log(req.body)
 
     const existingUser = await User.findOne({"email" : email});
     if(existingUser){
@@ -31,7 +30,7 @@ const registerUser = asyncHandler(async (req, res)=>{
 });
 
 const logInUser = asyncHandler(async (req , res)=>{
-    const {userName , email , password} = req.body;
+    const { email , password} = req.body;
 
     const user = await User.findOne({email});
 
@@ -41,7 +40,7 @@ const logInUser = asyncHandler(async (req , res)=>{
         )
     }
 
-    const isPasswordValid = user.isPasswordCorrect(password)
+    const isPasswordValid =  await user.isPasswordCorrect(password);
 
     if(!isPasswordValid){
         return res.status(401).json(

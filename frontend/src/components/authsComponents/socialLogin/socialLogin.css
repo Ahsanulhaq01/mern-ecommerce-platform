@@ -1,0 +1,19 @@
+.google-github-container{
+    display: grid;
+    grid-template-columns:  repeat(auto-fit , minmax(150px , 1fr));
+    gap: 20px;
+    padding: 10px 8px;
+
+}
+.google-github-container button{
+    display: flex;
+    align-items: center;
+    padding: 10px 4px;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}

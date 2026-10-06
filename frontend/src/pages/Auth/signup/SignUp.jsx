@@ -1,10 +1,7 @@
-import { FcGoogle } from "react-icons/fc";
 import {
-  FaGithub,
   FaUser,
   FaEnvelope,
   FaLock,
-  FaArrowRight,
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
@@ -12,6 +9,11 @@ import "./signup.css";
 import { useState } from "react";
 import axiosInstance from "../../../utils/axioxInstance";
 import { toast } from "react-toastify";
+import FormHeader from "../../../components/authsComponents/formHeader/FormHeader";
+import SocialLogin from "../../../components/authsComponents/socialLogin/SocialLogin";
+import OptionForEmail from "../../../components/authsComponents/optionForEmail/OptionForEmail";
+import SwitchOption from "../../../components/authsComponents/switchLogin_and_register/SwitchOption";
+import SubmitButton from "../../../components/authsComponents/submitButton/SubmitButton";
 
 function SignUp() {
   const [showPassword , setShowPassword] = useState(true);
@@ -26,11 +28,6 @@ function SignUp() {
  function handleChange(e) {
   const { name, value } = e.target;
 
-
-  // if (!name) {
-  //   console.error("🚨 EMPTY NAME FOUND:", e.target);
-  //   return;
-  // }
 
   setFormData((prev) => ({
     ...prev,
@@ -61,30 +58,15 @@ function SignUp() {
     <>
       <div className="signup-main-container">
         <div className="signup-container">
-          <div className="registration-heading">
-            <h2>Create your account</h2>
-            <p>
-              Join Aura Essentials for member-exclusive releases and effortless
-              order tracking.{" "}
-            </p>
-          </div>
 
-          <div className="google-github-container">
-            <div className="google-div">
-              <button>
-                <FcGoogle />
-                <p>Google</p>
-              </button>
-            </div>
-            <div className="github-">
-              <button>
-                <FaGithub />
-                <p>Github</p>
-              </button>
-            </div>
-          </div>
+          
+          <FormHeader heading={"Create Your Account"} text={"Join Aura Essentials for member-exclusive releases and effortless order tracking. "}/>
 
-          <p className="text-for-email-registration">OR REGISTER WITH EMAIL</p>
+         
+          <SocialLogin/>
+
+          
+          <OptionForEmail text={"OR REGISTER WITH EMAIL"}/>
 
           <div className="user-data-container">
             <form onSubmit={handleSubmit} id="register-form">
@@ -170,19 +152,11 @@ function SignUp() {
                 <p> I agree to the Terms of Service and Privacy Policy. </p>
               </div>
 
-              <div className="create-button-container">
-                <button form="register-form" type="submit">
-                  Create Account
-                  <FaArrowRight />
-                </button>
-              </div>
+              <SubmitButton text={"Create Account"}/>
             </form>
           </div>
 
-          <div className="sign-in-statment-contaniner">
-            <p>Already have an account? </p>
-            <a href="#">Sign in</a>
-          </div>
+          <SwitchOption text={"Already have an account? "} action={"sign in"} routeName={"/login"}/>
         </div>
       </div>
     </>

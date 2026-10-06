@@ -1,0 +1,15 @@
+.sign-in-statment-contaniner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.sign-in-statment-contaniner a{
+    border: 01px dashed #6F64DB;
+    text-decoration: none;
+    padding: 0px 4px;
+    
+}
